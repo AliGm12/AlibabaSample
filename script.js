@@ -244,13 +244,86 @@ travelIcons.forEach((icon) => {
         dateInputDiv.classList.add("flex", "w-[60%]", "gap-2")
         tab.lastElementChild.append(dateInputDiv)
         }
-        const passengerInput = tab.querySelector("#passenger-num")
-
+        
         //create a list for passenger
         
+        const passengerInput = tab.querySelector("#passenger-num")
+        const passengerList = tab.querySelector("#passenger-list")
 
-        passengerInput.addEventListener("click",()=>{  
+        passengerList.classList.add("invisible");
+        passengerInput.placeholder = "1 مسافر";
+        passengerInput.classList.add("pr-2")
+        passengerInput.addEventListener("click", (e)=>{
+            if(passengerList.className.includes("invisible")){
+                e.currentTarget.classList.add("border", "border-black")
+                passengerList.classList.add("transition-all")
+                passengerList.classList.remove("invisible")
+                passengerList.classList.add("top-14")
+            }
         })
+
+        const addDeleteBtns = passengerList.querySelectorAll("li .add-delete-btn");
+        let addDelBtnStack = 
+        [
+            {
+                key : 'بزرگسال',
+                value : 1
+            },
+            {
+                key : 'کودک',
+                value : 0
+            },
+            {
+                key : 'نوزاد',
+                value : 0
+            }
+        ];
+        addDeleteBtns.forEach(addBtn=>{
+
+                addBtn.addEventListener("click", (e) => {
+                    let titleName;
+                    if(e.currentTarget.innerHTML == 'add'){
+                        e.currentTarget.nextElementSibling.innerHTML = +e.currentTarget.nextElementSibling.innerHTML + 1
+                        titleName = e.currentTarget.nextElementSibling.parentNode.previousElementSibling.firstElementChild.innerHTML;
+
+                        addDelBtnStack.forEach(el=>{
+                            if(el.key == titleName){
+                                el.value = +e.currentTarget.nextElementSibling.innerHTML;
+                            }
+
+                        })
+                    }else{
+                        if(e.currentTarget.previousElementSibling.innerHTML != 0){
+                            e.currentTarget.previousElementSibling.innerHTML = +e.currentTarget.previousElementSibling.innerHTML - 1
+                        }
+                        titleName = e.currentTarget.previousElementSibling.parentNode.previousElementSibling.firstElementChild.innerHTML;
+                        addDelBtnStack.forEach(el=>{
+                            if(el.key == titleName){
+                                el.value = +e.currentTarget.previousElementSibling.innerHTML;
+                            }
+
+                        })
+                        
+                    }
+                    
+                    const sum = addDelBtnStack.reduce((prev,current)=>{
+                            return prev + +current.value
+                        },0)
+                        console.log(sum);
+                    passengerInput.placeholder = `${sum} مسافر`
+                })
+        })
+
+
+        document.addEventListener('click', (event) => {
+            if(!passengerList.contains(event.target) && !passengerInput.contains(event.target)){
+                passengerList.classList.add("invisible")
+                passengerInput.classList.remove("border-black")
+                passengerList.classList.remove("top-14")
+                passengerList.classList.remove("transition-all")
+                passengerList.classList.add("top-0")
+            }
+          });
         
         document.getElementById("type-of-travel").append(tab);
     }
@@ -304,85 +377,74 @@ travelIcons.forEach((icon) => {
 const passengerInput = document.querySelector("#passenger-num")
 const passengerList = document.querySelector("#passenger-list")
 passengerList.classList.add("invisible")
-console.log(passengerInput);
-passengerInput.placeholder = "1 مسافر"
+passengerInput.placeholder = "1 مسافر";
+passengerInput.classList.add("pr-2")
 passengerInput.addEventListener("click", (e)=>{
     if(passengerList.className.includes("invisible")){
         e.currentTarget.classList.add("border", "border-black")
         passengerList.classList.add("transition-all")
         passengerList.classList.remove("invisible")
         passengerList.classList.add("top-14")
-
-        const addDeleteBtns = passengerList.querySelectorAll("li .add-delete-btn");
-        // const deleteBtns = passengerList.querySelectorAll("li .add-delete-btn");
-        let addBtnStack = 
-        [
-            {
-                key : 'بزرگسال',
-                value : 0
-            },
-            {
-                key : 'کودک',
-                value : 0
-            },
-            {
-                key : 'نوزاد',
-                value : 0
-            }
-        ];
-        addDeleteBtns.forEach(addBtn=>{
-            console.log(addBtn , "ASd");
-
-                addBtn.addEventListener("click", (e) => {
-                    let titleName;
-                    if(e.currentTarget.innerHTML == 'add'){
-                        e.currentTarget.nextElementSibling.innerHTML = +e.currentTarget.nextElementSibling.innerHTML + 1
-                        titleName = e.currentTarget.nextElementSibling.parentNode.previousElementSibling.firstElementChild.innerHTML;
-
-                        addBtnStack.forEach(e=>{
-                            if(e.key == titleName){
-                                e.value = +e.currentTarget.nextElementSibling.innerHTML;
-                            }
-
-                        })
-                    }else{
-                        e.currentTarget.previousElementSibling.innerHTML = +e.currentTarget.previousElementSibling.innerHTML - 1
-                        titleName = e.currentTarget.previousElementSibling.parentNode.previousElementSibling.firstElementChild.innerHTML;
-                    }
-                    // if(titleName == "بزرگسال"){
-    
-                    //     addBtnStack[0].value = e.currentTarget.nextElementSibling.innerHTML
-                    // }
-                    // if(titleName == "کودک"){
-                    //     addBtnStack[1].value = e.currentTarget.nextElementSibling.innerHTML
-                    // }
-                    // if(titleName == "نوزاد"){
-                    //     addBtnStack[2].value = e.currentTarget.nextElementSibling.innerHTML
-                    // }
-                    console.log(addBtnStack);
-                const sum = addBtnStack.reduce((prev,current)=>{
-                        return prev + +current.value
-                    },0)
-                passengerInput.placeholder = `${sum} مسافر`
-    
-                })
-            
-        })
-        // deleteBtns.forEach(deleteBtn => {
-        //     deleteBtn.addEventListener("click", (e) => {
-        //         if(e.currentTarget.previousElementSibling.innerHTML != 0){
-        //             e.currentTarget.previousElementSibling.innerHTML = +e.currentTarget.previousElementSibling.innerHTML - 1
-        //         }
-        //     })
-        // })
-        // addBtn.addEventListener("click", ()=>{
-        //     console.log("hi");
-        // })
-        // const deleteBtn = passengerList.querySelector("li:nth-child(1) div:nth-child(2) span:nth-child(3)");
-        // deleteBtn.addEventListener("click", ()=>{
-        //     console.log("hrr");
-        // })
     }
 })
 
-console.log(passengerList.querySelector("li:nth-child(1) div:nth-child(2) span:nth-child(3)"));
+
+const addDeleteBtns = passengerList.querySelectorAll("li .add-delete-btn");
+let addDelBtnStack = 
+[
+    {
+        key : 'بزرگسال',
+        value : 1
+    },
+    {
+        key : 'کودک',
+        value : 0
+    },
+    {
+        key : 'نوزاد',
+        value : 0
+    }
+];
+addDeleteBtns.forEach(addBtn=>{
+    if(addBtn.innerHTML == "remove"){
+        if(addBtn.previousElementSibling.innerHTML == 0){
+            console.log("hi");
+        }
+            
+        }
+        addBtn.addEventListener("click", (e) => {
+
+            let titleName;
+            if(e.currentTarget.innerHTML == 'add'){
+                e.currentTarget.nextElementSibling.innerHTML = +e.currentTarget.nextElementSibling.innerHTML + 1
+                titleName = e.currentTarget.nextElementSibling.parentNode.previousElementSibling.firstElementChild.innerHTML;
+
+                addDelBtnStack.forEach(el=>{
+                    if(el.key == titleName){
+                        el.value = +e.currentTarget.nextElementSibling.innerHTML;
+                    }
+
+                })
+            }else{
+                if(e.currentTarget.previousElementSibling.innerHTML != 0){
+                    e.currentTarget.previousElementSibling.innerHTML = +e.currentTarget.previousElementSibling.innerHTML - 1
+                }else{
+                    e.currentTarget.style.cursor = "not-allowed"
+                }
+                titleName = e.currentTarget.previousElementSibling.parentNode.previousElementSibling.firstElementChild.innerHTML;
+                addDelBtnStack.forEach(el=>{
+                    if(el.key == titleName){
+                        el.value = +e.currentTarget.previousElementSibling.innerHTML;
+                    }
+
+                })
+                
+            }
+        const sum = addDelBtnStack.reduce((prev,current)=>{
+                return prev + +current.value
+            },0)
+        passengerInput.placeholder = `${sum} مسافر`
+
+
+        })
+})
