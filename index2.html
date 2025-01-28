@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <style>
+        .snow::after{
+            margin-left: -200px;
+            opacity: .4;
+            -webkit-animation-duration: 8s;
+            animation-duration: 8s;
+            animation-direction: reverse;
+            filter: blur(3px);
+        }
+        .snow::before{
+            -webkit-animation-duration: 12s;
+            animation-duration: 12s;
+            animation-direction: reverse;
+            margin-left: -300px;
+            opacity: .65;
+            filter: blur(1.5px);
+        }
+        .snow,
+        .snow::after,
+        .snow::before{
+            position: absolute;
+            top: -300px;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-image: radial-gradient(6px 6px at 298px 559px,rgba(255,255,255,.8) 50%,rgba(0,0,0,0)),radial-gradient(5px 5px at 313px 422px,rgb(255,255,255) 50%,rgba(0,0,0,0)),radial-gradient(3px 3px at 286px 447px,rgb(255,255,255) 50%,rgba(0,0,0,0)),radial-gradient(3px 3px at 263px 499px,rgb(255,255,255) 50%,rgba(0,0,0,0)),radial-gradient(3px 3px at 103px 572px,rgba(255,255,255,.9) 50%,rgba(0,0,0,0)),radial-gradient(3px 3px at 63px 583px,rgba(255,255,255,.6) 50%,rgba(0,0,0,0)),radial-gradient(4px 4px at 358px 412px,rgba(255,255,255,.9) 50%,rgba(0,0,0,0)),radial-gradient(6px 6px at 408px 299px,rgb(255,255,255) 50%,rgba(0,0,0,0)),radial-gradient(6px 6px at 395px 567px,rgb(255,255,255) 50%,rgba(0,0,0,0)),radial-gradient(4px 4px at 520px 567px,rgba(255,255,255,.7) 50%,rgba(0,0,0,0)),radial-gradient(5px 5px at 137px 106px,rgba(255,255,255,.7) 50%,rgba(0,0,0,0)),radial-gradient(6px 6px at 312px 399px,rgba(255,255,255,.6) 50%,rgba(0,0,0,0)),radial-gradient(5px 5px at 567px 341px,rgba(255,255,255,.9) 50%,rgba(0,0,0,0)),radial-gradient(5px 5px at 415px 467px,rgba(255,255,255,.9) 50%,rgba(0,0,0,0)),radial-gradient(5px 5px at 293px 416px,rgba(255,255,255,.6) 50%,rgba(0,0,0,0)),radial-gradient(3px 3px at 547px 259px,rgba(255,255,255,.6) 50%,rgba(0,0,0,0)),radial-gradient(4px 4px at 56px 248px,rgba(255,255,255,.7) 50%,rgba(0,0,0,0)),radial-gradient(3px 3px at 450px 433px,rgba(255,255,255,.6) 50%,rgba(0,0,0,0)),radial-gradient(6px 6px at 303px 351px,rgb(255,255,255) 50%,rgba(0,0,0,0)),radial-gradient(6px 6px at 460px 10px,rgba(255,255,255,.9) 50%,rgba(0,0,0,0)),radial-gradient(5px 5px at 196px 377px,rgba(255,255,255,.7) 50%,rgba(0,0,0,0)),radial-gradient(6px 6px at 480px 510px,rgba(255,255,255,.7) 50%,rgba(0,0,0,0)),radial-gradient(4px 4px at 354px 580px,rgba(255,255,255,.9) 50%,rgba(0,0,0,0)),radial-gradient(3px 3px at 437px 592px,rgba(255,255,255,.9) 50%,rgba(0,0,0,0)),radial-gradient(5px 5px at 287px 590px,rgb(255,255,255) 50%,rgba(0,0,0,0)),radial-gradient(4px 4px at 51px 54px,rgba(255,255,255,.8) 50%,rgba(0,0,0,0)),radial-gradient(4px 4px at 196px 484px,rgba(255,255,255,.6) 50%,rgba(0,0,0,0)),radial-gradient(3px 3px at 440px 393px,rgba(255,255,255,.6) 50%,rgba(0,0,0,0)),radial-gradient(3px 3px at 402px 325px,rgba(255,255,255,.9) 50%,rgba(0,0,0,0)),radial-gradient(4px 4px at 310px 431px,rgba(255,255,255,.8) 50%,rgba(0,0,0,0)),radial-gradient(5px 5px at 25px 133px,rgba(255,255,255,.8) 50%,rgba(0,0,0,0)),radial-gradient(4px 4px at 34px 532px,rgba(255,255,255,.6) 50%,rgba(0,0,0,0)),radial-gradient(3px 3px at 490px 312px,rgba(255,255,255,.6) 50%,rgba(0,0,0,0)),radial-gradient(3px 3px at 133px 495px,rgba(255,255,255,.7) 50%,rgba(0,0,0,0)),radial-gradient(3px 3px at 165px 60px,rgba(255,255,255,.8) 50%,rgba(0,0,0,0)),radial-gradient(3px 3px at 293px 95px,rgba(255,255,255,.8) 50%,rgba(0,0,0,0)),radial-gradient(6px 6px at 420px 392px,rgba(255,255,255,.6) 50%,rgba(0,0,0,0)),radial-gradient(6px 6px at 483px 343px,rgba(255,255,255,.7) 50%,rgba(0,0,0,0)),radial-gradient(4px 4px at 539px 537px,rgba(255,255,255,.6) 50%,rgba(0,0,0,0)),radial-gradient(3px 3px at 109px 175px,rgba(255,255,255,.7) 50%,rgba(0,0,0,0)),radial-gradient(6px 6px at 57px 109px,rgba(255,255,255,.8) 50%,rgba(0,0,0,0)),radial-gradient(6px 6px at 491px 300px,rgba(255,255,255,.6) 50%,rgba(0,0,0,0)),radial-gradient(3px 3px at 31px 572px,rgb(255,255,255) 50%,rgba(0,0,0,0)),radial-gradient(3px 3px at 538px 250px,rgb(255,255,255) 50%,rgba(0,0,0,0)),radial-gradient(3px 3px at 155px 432px,rgba(255,255,255,.9) 50%,rgba(0,0,0,0)),radial-gradient(5px 5px at 447px 563px,rgba(255,255,255,.7) 50%,rgba(0,0,0,0)),radial-gradient(3px 3px at 540px 148px,rgba(255,255,255,.9) 50%,rgba(0,0,0,0)),radial-gradient(3px 3px at 322px 69px,rgb(255,255,255) 50%,rgba(0,0,0,0)),radial-gradient(6px 6px at 513px 15px,rgb(255,255,255) 50%,rgba(0,0,0,0)),radial-gradient(4px 4px at 507px 142px,rgba(255,255,255,.6) 50%,rgba(0,0,0,0)),radial-gradient(6px 6px at 169px 537px,rgba(255,255,255,.9) 50%,rgba(0,0,0,0)),radial-gradient(4px 4px at 340px 410px,rgba(255,255,255,.7) 50%,rgba(0,0,0,0)),radial-gradient(6px 6px at 290px 428px,rgba(255,255,255,.8) 50%,rgba(0,0,0,0)),radial-gradient(3px 3px at 396px 592px,rgba(255,255,255,.7) 50%,rgba(0,0,0,0)),radial-gradient(4px 4px at 513px 215px,rgba(255,255,255,.9) 50%,rgba(0,0,0,0)),radial-gradient(3px 3px at 510px 568px,rgba(255,255,255,.9) 50%,rgba(0,0,0,0)),radial-gradient(4px 4px at 531px 339px,rgba(255,255,255,.7) 50%,rgba(0,0,0,0)),radial-gradient(3px 3px at 475px 79px,rgba(255,255,255,.8) 50%,rgba(0,0,0,0)),radial-gradient(6px 6px at 100px 336px,rgba(255,255,255,.8) 50%,rgba(0,0,0,0)),radial-gradient(6px 6px at 544px 197px,rgba(255,255,255,.6) 50%,rgba(0,0,0,0)),radial-gradient(6px 6px at 541px 384px,rgb(255,255,255) 50%,rgba(0,0,0,0)),radial-gradient(3px 3px at 279px 128px,rgba(255,255,255,.9) 50%,rgba(0,0,0,0)),radial-gradient(5px 5px at 366px 476px,rgba(255,255,255,.7) 50%,rgba(0,0,0,0)),radial-gradient(3px 3px at 200px 491px,rgba(255,255,255,.7) 50%,rgba(0,0,0,0)),radial-gradient(5px 5px at 54px 222px,rgba(255,255,255,.7) 50%,rgba(0,0,0,0)),radial-gradient(6px 6px at 85px 136px,rgba(255,255,255,.8) 50%,rgba(0,0,0,0)),radial-gradient(4px 4px at 159px 118px,rgba(255,255,255,.9) 50%,rgba(0,0,0,0)),radial-gradient(4px 4px at 524px 286px,rgba(255,255,255,.6) 50%,rgba(0,0,0,0)),radial-gradient(4px 4px at 386px 485px,rgba(255,255,255,.6) 50%,rgba(0,0,0,0)),radial-gradient(6px 6px at 461px 533px,rgba(255,255,255,.6) 50%,rgba(0,0,0,0));
+            background-size: 600px 600px;
+            -webkit-animation: snow-5bdeba4f 4s linear infinite;
+            animation: snow-5bdeba4f 4s linear infinite;
+            content: "";
+        }
+        @keyframes snow-5bdeba4f {
+            from{
+                transform: translateY(-600);
+            }
+
+        }
+    </style> -->
+</head>
+<body dir="rtl">
+    <div id="container">
+        <section id="header" class="shadow-lg z-10">
+            <div class="nav-header flex max-w-[91rem] mx-auto justify-between items-center mt-2 pb-2 px-0 md:px-5">
+                <div class="w-40 h-12 cursor-pointer">
+                    <img class="w-40 h-12 object-cover" src="./imgs/Alibaba-Logo-02.jpg" alt="">
+                </div>
+                <nav class="flex items-center text-gray-600">
+                    <div id="ticket" class="flex relative items-center hover:bg-gray-100 p-2 px-4 cursor-pointer rounded-md">بلیط
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" class="md:mr-3" data-v-13aab30c=""><path d="M21.266 7.302a.75.75 0 0 1 1.037 1.08l-.069.066-9.75 8.25a.75.75 0 0 1-.89.058l-.078-.058-9.75-8.25a.75.75 0 0 1 .893-1.202l.075.056L12 15.142l9.266-7.84Z"></path></svg>
+                        <!-- <ul id="ticketList" class="absolute shadow-lg bg-white py-2 px-4 rounded-md top-[10%] hidden">
+                            <li class="p-2">پرواز داخلی</li>
+                            <div class="w-auto h-[1px] bg-gray-300"></div>
+                            <li class="p-2">پرواز خارجی</li>
+                            <div class="w-auto h-[1px] bg-gray-300"></div>
+                            <li class="p-2">ویلا و اقامتگاه</li>
+                            <div class="w-auto h-[1px] bg-gray-300"></div>
+                            <li class="p-2">قطار</li>
+                            <div class="w-auto h-[1px] bg-gray-300"></div>
+                            <li class="p-2">اتوبوس</li>
+                        </ul> -->
+                    </div>
+                    <div class="w-[1px] h-6 bg-gray-300 mx-1"></div>
+                    <div id="residence" class="flex relative items-center hover:bg-gray-100 p-2 px-4 cursor-pointer rounded-md">اقامت
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" class="md:mr-3" data-v-13aab30c=""><path d="M21.266 7.302a.75.75 0 0 1 1.037 1.08l-.069.066-9.75 8.25a.75.75 0 0 1-.89.058l-.078-.058-9.75-8.25a.75.75 0 0 1 .893-1.202l.075.056L12 15.142l9.266-7.84Z"></path></svg>
+                        <!-- <ul id="residenceList" class="absolute shadow-lg bg-white py-2 px-4 rounded-md top-[10%] hidden">
+                            <li class="p-2">هتل</li>
+                            <div class="w-auto h-[1px] bg-gray-300"></div>
+                            <li class="p-2">ویلا و اقامتگاه</li>
+                        </ul> -->
+                    </div>
+                    <div class="w-[1px] h-6 bg-gray-300 mx-1"></div>
+                    <div class="flex hover:bg-gray-100 p-2 px-4 cursor-pointer rounded-md">تور</div>
+                    <div class="w-[1px] h-6 bg-gray-300 mx-1"></div>
+                    <div class="flex hover:bg-gray-100 p-2 px-4 cursor-pointer rounded-md">ویزا</div>
+                    <div class="w-[1px] h-6 bg-gray-300 mx-1"></div>
+                    <div id="moreOption" class="flex relative items-center hover:bg-gray-100 p-2 px-4 cursor-pointer rounded-md">بیشتر
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" class="md:mr-3" data-v-13aab30c=""><path d="M21.266 7.302a.75.75 0 0 1 1.037 1.08l-.069.066-9.75 8.25a.75.75 0 0 1-.89.058l-.078-.058-9.75-8.25a.75.75 0 0 1 .893-1.202l.075.056L12 15.142l9.266-7.84Z"></path></svg>
+                        <!-- <ul id="moreOptionList" class="absolute shadow-lg bg-white py-2 px-4 rounded-md top-[10%] hidden">
+                            <li class="p-2">علی بابا پلاس</li>
+                            <div class="w-auto h-[1px] bg-gray-300"></div>
+                            <li class="p-2">مجله علی بابا</li>
+                            <div class="w-auto h-[1px] bg-gray-300"></div>
+                            <li class="p-2">بیمه مسافرتی</li>
+                            <div class="w-auto h-[1px] bg-gray-300"></div>
+                            <li class="p-2">سفر اقساطی</li>
+                        </ul> -->
+                    </div>
+                </nav>
+                <nav class="flex items-center text-gray-600 mr-20">
+                    <a class="flex items-center gap-1 hover:bg-gray-100 cursor-pointer p-2 px-4 rounded-md">
+                        <svg viewBox="0 0 24 24" width="1.5em" fill="currentColor" data-v-a0796dfe=""><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5ZM12 3a9 9 0 0 1 9 9 9 9 0 0 1-9 9 9 9 0 0 1-9-9 9 9 0 0 1 9-9Zm.242 12.634a.72.72 0 0 0-.72.72v.36a.72.72 0 0 0 .636.715l.084.005a.72.72 0 0 0 .72-.72v-.36a.72.72 0 0 0-.72-.72Zm-.285-9.068c-.5 0-.943.07-1.33.208a2.664 2.664 0 0 0-.98.592c-.264.258-.467.57-.605.937a3.48 3.48 0 0 0-.206 1.229c0 .354.054.683.164.99.108.308.257.6.441.878.185.279.394.541.629.788.232.247.475.488.724.721.286.266.48.565.578.897.1.334.147.693.147 1.078h1.445a6.226 6.226 0 0 0-.079-.96 2.803 2.803 0 0 0-.226-.726 3.122 3.122 0 0 0-.41-.636 11.256 11.256 0 0 0-.627-.69 56.686 56.686 0 0 0-.511-.519 3.796 3.796 0 0 1-.43-.507 2.073 2.073 0 0 1-.403-1.268c0-.546.144-.973.43-1.283.287-.31.703-.464 1.25-.464.228 0 .448.03.659.09.21.059.396.153.56.28a1.4 1.4 0 0 1 .395.484c.1.195.148.428.148.698h1.444a2.797 2.797 0 0 0-.258-1.186 2.65 2.65 0 0 0-.678-.885 3.035 3.035 0 0 0-1.01-.555 4.033 4.033 0 0 0-1.26-.191Z" fill-rule="evenodd"></path></svg>
+                        مرکز پشتیبانی آنلاین
+                    </a>
+                    <a class="flex items-center gap-1 hover:bg-gray-100 cursor-pointer p-2 px-4 rounded-md">
+                        <svg viewBox="0 0 24 24" width="1.5em" fill="currentColor" data-v-a0796dfe=""><path d="M13.875 1.5a1.5 1.5 0 0 1 1.496 1.388l.004.112v1.5h1.875a2.25 2.25 0 0 1 2.246 2.118l.004.132V18a2.25 2.25 0 0 1-2.118 2.246l-.132.004h-.375V21a.75.75 0 0 1-1.495.087L15.375 21v-.75h-4.97a3.001 3.001 0 0 1-2.755 2.246l-.15.004a3 3 0 0 1-2.25-4.984V6.75a2.25 2.25 0 0 1 2.118-2.246L7.5 4.5h1.875V3a1.5 1.5 0 0 1 1.388-1.496l.112-.004h3ZM7.5 18a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm9.75-12H7.5a.75.75 0 0 0-.745.663l-.005.087v9.845a3.004 3.004 0 0 1 3.655 2.155h6.845a.75.75 0 0 0 .745-.663L18 18V6.75a.75.75 0 0 0-.663-.745L17.25 6Zm-3 2.25a.75.75 0 0 1 .745.663L15 9v6.75a.75.75 0 0 1-1.495.088l-.005-.088V9a.75.75 0 0 1 .75-.75Zm-3.75 0a.75.75 0 0 1 .745.663L11.25 9v6.75a.75.75 0 0 1-1.495.088l-.005-.088V9a.75.75 0 0 1 .75-.75ZM13.875 3h-3v1.5h3V3Z" fill-rule="evenodd"></path></svg>
+                        سفرهای من
+                    </a>
+                    <a class="flex items-center gap-1 hover:bg-gray-100 cursor-pointer p-2 px-4 rounded-md">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" class="ml-1 text-grays-500" data-v-a0796dfe=""><path d="M17.25 12.75A3.75 3.75 0 0 1 21 16.5v3.75a.75.75 0 0 1-.75.75H3.75a.75.75 0 0 1-.75-.75V16.5a3.75 3.75 0 0 1 3.75-3.75h10.5Zm0 1.5H6.75A2.25 2.25 0 0 0 4.5 16.5v3h15v-3a2.25 2.25 0 0 0-2.118-2.246l-.132-.004ZM12 3a4.5 4.5 0 1 1 0 9 4.5 4.5 0 1 1 0-9Zm0 1.5a3 3 0 1 0-.001 5.999A3 3 0 0 0 12 4.5Z" fill-rule="evenodd"></path></svg>
+                        ورود یا ثبت‌نام
+                    </a>
+                </nav>
+            </div>
+        </section>
+        <section id="lower-header" class="">
+            <!-- <div class="snow  z-[1] ">
+            </div> -->
+            <div class="main-menu h-[1500px] bg-black">
+                <img class="w-[1915px] h-[320px] object-contain -z-10" src="./imgs/hero-e1fa22fb.webp" alt="">
+            </div>
+        </section>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
