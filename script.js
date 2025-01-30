@@ -448,3 +448,64 @@ addDeleteBtns.forEach(addBtn=>{
 
         })
 })
+
+
+
+const swiper = new Swiper('.swiper', {
+    slidesPerView : 2,
+    // effect: 'creative',
+    // creativeEffect: {
+    //   prev: {
+    //     // will set `translateZ(-400px)` on previous slides
+    //     translate: [0, 0, -400],
+    //   },
+    //   next: {
+    //     // will set `translateX(100%)` on next slides
+    //     translate: ['100%', 0, 0],
+    //   },
+    // },
+    
+    autoplay: {
+        delay: 5000,
+      },
+    speed:400,
+    spaceBetween: 20,
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+  
+    pagination: {
+        el: '.swiper-pagination', // Enables pagination
+        clickable: true, // Allows clicking on pagination bullets
+      },
+      navigation: false, // Disables navigation buttons
+  
+    // And if we need scrollbar
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+  });
+  
+
+const extendableDivs = document.querySelectorAll(".extendable");
+console.log(extendableDivs);
+const exDiv = document.querySelector(".extendable-div");
+extendableDivs.forEach(exDiv=>{
+    exDiv.addEventListener("click", ()=>{
+        const svg = exDiv.querySelector("svg:nth-child(2)")
+        const hiddenP = exDiv.lastElementChild
+        if( hiddenP.classList.contains("max-h-0")){
+            svg.classList.add("rotate-0")
+            hiddenP.classList.remove("max-h-0")
+            hiddenP.classList.add("max-h-[400px]")
+            hiddenP.classList.remove("overflow-hidden")
+            hiddenP.classList.add("pt-5")
+        }else{
+            svg.classList.remove("rotate-0")
+            hiddenP.classList.remove("max-h-[400px]")
+            hiddenP.classList.add("max-h-0")
+            hiddenP.classList.remove("pt-5")
+            hiddenP.classList.add("overflow-hidden")
+        }
+    })
+})

@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <style>
         .snow::after{
             margin-left: -200px;
@@ -68,7 +73,22 @@
         body{
             height: 3000px;
         }
-        
+        /* Style the pagination bullets */
+        .swiper-pagination-bullet {
+        width: 8px; /* Change size */
+        height: 8px;
+        background-color: rgba(128, 128, 128, 0.248); /* Change color */
+        opacity: 1; /* Make them fully visible */
+        transition: all 0.3s ease-in-out; /* Smooth transition */
+        margin: 0 1px;
+        gap: 0;
+        padding: 0;
+        }
+
+        /* Active bullet */
+        .swiper-pagination-bullet-active {
+        background-color: #ff5722; /* Change active bullet color */
+        }
     </style>
 </head>
 <body dir="rtl">
@@ -242,6 +262,173 @@
                             <div class="w-[27.5%]">
                                 <button class="bg-[#FDB713] p-3 w-full  border border-gray-300 rounded-lg">جستجو</button>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="other-services flex flex-col mt-4 mb-6">
+                <div class="my-4 font-bold">سایر خدمات علی بابا</div>
+                <div class="flex flex-row text-sm text-gray-600 w-full justify-between items-center border border-gray-300 rounded px-16 py-6">
+                    <div class="flex items-center gap-1">
+                        <img class="w-[46px] h-[46px]" src="./imgs/other-services1.svg" alt="">
+                        <span>سفرکارت (سازمانی)</span>
+                    </div>
+                    <div class="w-[1px] h-8 bg-gray-300"></div>
+                    <div class="flex items-center gap-1">
+                        <img class="w-[46px] h-[46px]" src="./imgs/other-services2.svg" alt="">
+                        <span>سفر اقساطی</span>
+                    </div>
+                    <div class="w-[1px] h-8 bg-gray-300"></div>
+                    <div class="flex items-center gap-1">
+                        <img class="w-[46px] h-[46px]" src="./imgs/other-services3.svg" alt="">
+                        <span>ویزای سفر</span>
+                    </div>
+                    <div class="w-[1px] h-8 bg-gray-300"></div>
+                    <div class="flex items-center gap-1">
+                        <img class="w-[46px] h-[46px]" src="./imgs/other-services4.svg" alt="">
+                        <span>تور گردشگری</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slider main container -->
+            <div class="swiper w-full h-[260px]">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper h-[224px] w-[592px]">
+                    <!-- Slides -->
+                    <div class="swiper-slide ">
+                        <img src="./imgs/swiperImg1.png" class="h-full w-full rounded-lg" alt="">
+                    </div>
+                    <div class="swiper-slide ">
+                        <img src="./imgs/swiperImg2.png" class="h-full w-full rounded-lg" alt="">
+                    </div>
+                    <div class="swiper-slide ">
+                        <img src="./imgs/swiperImg3.png" class="h-full w-full rounded-lg" alt="">
+                    </div>
+                    <div class="swiper-slide ">
+                        <img src="./imgs/swiperImg4.png" class="h-full w-full rounded-lg" alt="">
+                    </div>
+                </div>
+            <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+
+
+            <div class="alibaba-apk flex items-center justify-between border border-gray-300 rounded-lg px-24 pt-2">
+                <div class="flex items-center">
+                    <div class="ml-20">
+                        <img src="./imgs/alibabaBarcode.png" alt="">
+                    </div>
+                    <div class="flex flex-col gap-6">
+                        <div>
+                            <p class="font-black text-xl">اپلیکیشن علی‌بابا</p>
+                            <p class="text-lg mt-1">سریع‌تر و مطمئن‌تر به سفر بروید</p>
+                        </div>
+                        <p class="flex items-center text-[#0077DB]">مشاهده لینک‌های دانلود
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" class="mr-2"><path d="M16.698 21.266a.75.75 0 0 1-1.08 1.037l-.066-.069-8.25-9.75a.75.75 0 0 1-.058-.89l.058-.078 8.25-9.75a.75.75 0 0 1 1.202.893l-.056.075L8.858 12l7.84 9.266Z"></path></svg>
+                        </p>
+                        <div class="flex text-xs items-end gap-2 text-gray-400">
+                            <img class="w-[20px] h-[20px] mb-1" src="./imgs/apple.png" alt="">
+                            <img class="w-[20px] h-[20px] mb-1" src="./imgs/android.png" alt="">
+                            <p>قابلیت نصب روی Android و iOS</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img class="w-[334px] " src="./imgs/alibabaAPK.webp" alt="">
+                </div>
+            </div>
+
+
+            <div class="mt-10">
+                <p class="text-2xl font-black mb-7">پرسش‌ های شما</p>
+                <div class="border border-gray-300 rounded-lg">
+                    <div class="border-b border-gray-300 p-4 cursor-pointer extendable">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-2">
+                                <svg viewBox="0 0 24 24" width="32px" height="32px" fill="currentColor" class="a-accordion__icon  p-1 text-[#17A2B8] bg-[#E8F9FC] rounded-full"><path d="M14.442 16.905c0-1.427-.177-2.564-.531-3.411-.322-.77-.931-1.612-1.827-2.525l-.734-.726c-.787-.786-1.298-1.361-1.533-1.726a3.775 3.775 0 0 1-.646-2.126c0-1.005.249-1.776.747-2.312.498-.536 1.23-.804 2.197-.804.93 0 1.676.26 2.241.782.565.522.847 1.233.847 2.133h3.921c-.028-1.905-.68-3.413-1.953-4.524C15.898.556 14.212 0 12.115 0 9.951 0 8.266.548 7.06 1.645 5.853 2.74 5.25 4.275 5.25 6.248c0 1.752.814 3.476 2.442 5.17l1.996 1.954c.709.813 1.072 1.991 1.092 3.533h3.662Zm.273 5.027c0-.642-.199-1.159-.596-1.551-.397-.393-.936-.59-1.616-.59-.69 0-1.233.204-1.63.611-.397.407-.596.917-.596 1.53 0 .584.194 1.075.582 1.472.387.397.936.596 1.644.596.709 0 1.255-.199 1.637-.596.384-.397.575-.888.575-1.472Z"></path></svg>
+                                <p class="font-black">چند روز قبل از پرواز، بلیط هواپیما را بخریم؟</p>
+                            </div>
+                            <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" class="block rotate-180"><path d="M21.266 16.698a.75.75 0 0 0 1.037-1.08l-.069-.066-9.75-8.25a.75.75 0 0 0-.89-.058l-.078.058-9.75 8.25a.75.75 0 0 0 .893 1.202l.075-.056L12 8.858l9.266 7.84Z"></path></svg>
+                        </div>
+                        <div class="extendable-div max-h-0  transition-[max-height mt-5] duration-300 overflow-hidden leading-9 text-gray-500 px-10">
+                            امکان رزرو بلیط هواپیما از ماه‌ها قبل وجود دارد. اما گاهی اوقات قیمت بلیط هواپیما در روزهای نزدیک به پرواز ارزان‌تر می‌شود. بنابراین در صورتی که شرایطتان اجازه می‌دهد، رزرو آنلاین بلیط هواپیما را به روزهای نزدیک پرواز موکول کنید. البته اگر قصد سفر در ایام پرسفر نظیر تعطیلات را دارید، باید هر چه زودتر رزرو بلیط هواپیما را انجام دهید.
+                        </div>
+                    </div>
+                    
+                    <div class="border-b border-gray-300 p-4 cursor-pointer extendable">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-2">
+                                <svg viewBox="0 0 24 24" width="32px" height="32px" fill="currentColor" class="a-accordion__icon  p-1 text-[#17A2B8] bg-[#E8F9FC] rounded-full"><path d="M14.442 16.905c0-1.427-.177-2.564-.531-3.411-.322-.77-.931-1.612-1.827-2.525l-.734-.726c-.787-.786-1.298-1.361-1.533-1.726a3.775 3.775 0 0 1-.646-2.126c0-1.005.249-1.776.747-2.312.498-.536 1.23-.804 2.197-.804.93 0 1.676.26 2.241.782.565.522.847 1.233.847 2.133h3.921c-.028-1.905-.68-3.413-1.953-4.524C15.898.556 14.212 0 12.115 0 9.951 0 8.266.548 7.06 1.645 5.853 2.74 5.25 4.275 5.25 6.248c0 1.752.814 3.476 2.442 5.17l1.996 1.954c.709.813 1.072 1.991 1.092 3.533h3.662Zm.273 5.027c0-.642-.199-1.159-.596-1.551-.397-.393-.936-.59-1.616-.59-.69 0-1.233.204-1.63.611-.397.407-.596.917-.596 1.53 0 .584.194 1.075.582 1.472.387.397.936.596 1.644.596.709 0 1.255-.199 1.637-.596.384-.397.575-.888.575-1.472Z"></path></svg>
+                                <p class="font-black">در هر پرواز، میزان بار مجاز چقدر است؟</p>
+                            </div>
+                            <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" class="block rotate-180"><path d="M21.266 16.698a.75.75 0 0 0 1.037-1.08l-.069-.066-9.75-8.25a.75.75 0 0 0-.89-.058l-.078.058-9.75 8.25a.75.75 0 0 0 .893 1.202l.075-.056L12 8.858l9.266 7.84Z"></path></svg>
+                        </div>
+                        <div class="extendable-div max-h-0  transition-[max-height mt-5] duration-300 overflow-hidden leading-9 text-gray-500 px-10">
+                            میزان مجاز بار به کلاس پرواز و کلاس نرخی بلیط بستگی دارد. هنگام خرید آنلاین بلیط هواپیما می‌توانید میزان بار مجاز را در اطلاعات بلیط ببینید. طبیعی است که اگر میزان بارتان بیش از حد مجاز باشد، باید جریمه پرداخت کنید.
+                        </div>
+                    </div>
+                    <div class="border-b border-gray-300 p-4 cursor-pointer extendable">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-2">
+                                <svg viewBox="0 0 24 24" width="32px" height="32px" fill="currentColor" class="a-accordion__icon  p-1 text-[#17A2B8] bg-[#E8F9FC] rounded-full"><path d="M14.442 16.905c0-1.427-.177-2.564-.531-3.411-.322-.77-.931-1.612-1.827-2.525l-.734-.726c-.787-.786-1.298-1.361-1.533-1.726a3.775 3.775 0 0 1-.646-2.126c0-1.005.249-1.776.747-2.312.498-.536 1.23-.804 2.197-.804.93 0 1.676.26 2.241.782.565.522.847 1.233.847 2.133h3.921c-.028-1.905-.68-3.413-1.953-4.524C15.898.556 14.212 0 12.115 0 9.951 0 8.266.548 7.06 1.645 5.853 2.74 5.25 4.275 5.25 6.248c0 1.752.814 3.476 2.442 5.17l1.996 1.954c.709.813 1.072 1.991 1.092 3.533h3.662Zm.273 5.027c0-.642-.199-1.159-.596-1.551-.397-.393-.936-.59-1.616-.59-.69 0-1.233.204-1.63.611-.397.407-.596.917-.596 1.53 0 .584.194 1.075.582 1.472.387.397.936.596 1.644.596.709 0 1.255-.199 1.637-.596.384-.397.575-.888.575-1.472Z"></path></svg>
+                                <p class="font-black">نرخ بلیط هواپیما برای نوزادان و کودکان زیر ۱۲ سال چگونه است؟</p>
+                            </div>
+                            <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" class="block rotate-180"><path d="M21.266 16.698a.75.75 0 0 0 1.037-1.08l-.069-.066-9.75-8.25a.75.75 0 0 0-.89-.058l-.078.058-9.75 8.25a.75.75 0 0 0 .893 1.202l.075-.056L12 8.858l9.266 7.84Z"></path></svg>
+                        </div>
+                        <div class="extendable-div max-h-0  transition-[max-height mt-5] duration-300 overflow-hidden leading-9 text-gray-500 px-10">
+                            نرخ بلیط کودکان و نوزادان به کلاس پرواز و کلاس نرخی بستگی دارد. به صورت کلی، قیمت بلیط مسافر کودک (2 الی 12 سال) معادل 50 الی 100 درصد بلیط بزرگسال، و قیمت بلیط مسافر نوزاد (تا دو سال) 10 درصد بلیط بزرگسال است. هنگام تهیه بلیط هواپیما به این نکته توجه داشته باشید.
+                        </div>
+                    </div>
+                    <div class="border-b border-gray-300 p-4 cursor-pointer extendable">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-2">
+                                <svg viewBox="0 0 24 24" width="32px" height="32px" fill="currentColor" class="a-accordion__icon  p-1 text-[#17A2B8] bg-[#E8F9FC] rounded-full"><path d="M14.442 16.905c0-1.427-.177-2.564-.531-3.411-.322-.77-.931-1.612-1.827-2.525l-.734-.726c-.787-.786-1.298-1.361-1.533-1.726a3.775 3.775 0 0 1-.646-2.126c0-1.005.249-1.776.747-2.312.498-.536 1.23-.804 2.197-.804.93 0 1.676.26 2.241.782.565.522.847 1.233.847 2.133h3.921c-.028-1.905-.68-3.413-1.953-4.524C15.898.556 14.212 0 12.115 0 9.951 0 8.266.548 7.06 1.645 5.853 2.74 5.25 4.275 5.25 6.248c0 1.752.814 3.476 2.442 5.17l1.996 1.954c.709.813 1.072 1.991 1.092 3.533h3.662Zm.273 5.027c0-.642-.199-1.159-.596-1.551-.397-.393-.936-.59-1.616-.59-.69 0-1.233.204-1.63.611-.397.407-.596.917-.596 1.53 0 .584.194 1.075.582 1.472.387.397.936.596 1.644.596.709 0 1.255-.199 1.637-.596.384-.397.575-.888.575-1.472Z"></path></svg>
+                                <p class="font-black">چند روز قبل از پرواز، بلیط هواپیما را بخریم؟</p>
+                            </div>
+                            <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" class="block rotate-180"><path d="M21.266 16.698a.75.75 0 0 0 1.037-1.08l-.069-.066-9.75-8.25a.75.75 0 0 0-.89-.058l-.078.058-9.75 8.25a.75.75 0 0 0 .893 1.202l.075-.056L12 8.858l9.266 7.84Z"></path></svg>
+                        </div>
+                        <div class="extendable-div max-h-0  transition-[max-height mt-5] duration-300 overflow-hidden leading-9 text-gray-500 px-10">
+                            امکان رزرو بلیط هواپیما از ماه‌ها قبل وجود دارد. اما گاهی اوقات قیمت بلیط هواپیما در روزهای نزدیک به پرواز ارزان‌تر می‌شود. بنابراین در صورتی که شرایطتان اجازه می‌دهد، رزرو آنلاین بلیط هواپیما را به روزهای نزدیک پرواز موکول کنید. البته اگر قصد سفر در ایام پرسفر نظیر تعطیلات را دارید، باید هر چه زودتر رزرو بلیط هواپیما را انجام دهید.
+                        </div>
+                    </div>
+                    <div class="border-b border-gray-300 p-4 cursor-pointer extendable">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-2">
+                                <svg viewBox="0 0 24 24" width="32px" height="32px" fill="currentColor" class="a-accordion__icon  p-1 text-[#17A2B8] bg-[#E8F9FC] rounded-full"><path d="M14.442 16.905c0-1.427-.177-2.564-.531-3.411-.322-.77-.931-1.612-1.827-2.525l-.734-.726c-.787-.786-1.298-1.361-1.533-1.726a3.775 3.775 0 0 1-.646-2.126c0-1.005.249-1.776.747-2.312.498-.536 1.23-.804 2.197-.804.93 0 1.676.26 2.241.782.565.522.847 1.233.847 2.133h3.921c-.028-1.905-.68-3.413-1.953-4.524C15.898.556 14.212 0 12.115 0 9.951 0 8.266.548 7.06 1.645 5.853 2.74 5.25 4.275 5.25 6.248c0 1.752.814 3.476 2.442 5.17l1.996 1.954c.709.813 1.072 1.991 1.092 3.533h3.662Zm.273 5.027c0-.642-.199-1.159-.596-1.551-.397-.393-.936-.59-1.616-.59-.69 0-1.233.204-1.63.611-.397.407-.596.917-.596 1.53 0 .584.194 1.075.582 1.472.387.397.936.596 1.644.596.709 0 1.255-.199 1.637-.596.384-.397.575-.888.575-1.472Z"></path></svg>
+                                <p class="font-black">چند روز قبل از پرواز، بلیط هواپیما را بخریم؟</p>
+                            </div>
+                            <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" class="block rotate-180"><path d="M21.266 16.698a.75.75 0 0 0 1.037-1.08l-.069-.066-9.75-8.25a.75.75 0 0 0-.89-.058l-.078.058-9.75 8.25a.75.75 0 0 0 .893 1.202l.075-.056L12 8.858l9.266 7.84Z"></path></svg>
+                        </div>
+                        <div class="extendable-div max-h-0  transition-[max-height mt-5] duration-300 overflow-hidden leading-9 text-gray-500 px-10">
+                            امکان رزرو بلیط هواپیما از ماه‌ها قبل وجود دارد. اما گاهی اوقات قیمت بلیط هواپیما در روزهای نزدیک به پرواز ارزان‌تر می‌شود. بنابراین در صورتی که شرایطتان اجازه می‌دهد، رزرو آنلاین بلیط هواپیما را به روزهای نزدیک پرواز موکول کنید. البته اگر قصد سفر در ایام پرسفر نظیر تعطیلات را دارید، باید هر چه زودتر رزرو بلیط هواپیما را انجام دهید.
+                        </div>
+                    </div>
+                    <div class="border-b border-gray-300 p-4 cursor-pointer extendable">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-2">
+                                <svg viewBox="0 0 24 24" width="32px" height="32px" fill="currentColor" class="a-accordion__icon  p-1 text-[#17A2B8] bg-[#E8F9FC] rounded-full"><path d="M14.442 16.905c0-1.427-.177-2.564-.531-3.411-.322-.77-.931-1.612-1.827-2.525l-.734-.726c-.787-.786-1.298-1.361-1.533-1.726a3.775 3.775 0 0 1-.646-2.126c0-1.005.249-1.776.747-2.312.498-.536 1.23-.804 2.197-.804.93 0 1.676.26 2.241.782.565.522.847 1.233.847 2.133h3.921c-.028-1.905-.68-3.413-1.953-4.524C15.898.556 14.212 0 12.115 0 9.951 0 8.266.548 7.06 1.645 5.853 2.74 5.25 4.275 5.25 6.248c0 1.752.814 3.476 2.442 5.17l1.996 1.954c.709.813 1.072 1.991 1.092 3.533h3.662Zm.273 5.027c0-.642-.199-1.159-.596-1.551-.397-.393-.936-.59-1.616-.59-.69 0-1.233.204-1.63.611-.397.407-.596.917-.596 1.53 0 .584.194 1.075.582 1.472.387.397.936.596 1.644.596.709 0 1.255-.199 1.637-.596.384-.397.575-.888.575-1.472Z"></path></svg>
+                                <p class="font-black">چند روز قبل از پرواز، بلیط هواپیما را بخریم؟</p>
+                            </div>
+                            <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" class="block rotate-180"><path d="M21.266 16.698a.75.75 0 0 0 1.037-1.08l-.069-.066-9.75-8.25a.75.75 0 0 0-.89-.058l-.078.058-9.75 8.25a.75.75 0 0 0 .893 1.202l.075-.056L12 8.858l9.266 7.84Z"></path></svg>
+                        </div>
+                        <div class="extendable-div max-h-0  transition-[max-height mt-5] duration-300 overflow-hidden leading-9 text-gray-500 px-10">
+                            امکان رزرو بلیط هواپیما از ماه‌ها قبل وجود دارد. اما گاهی اوقات قیمت بلیط هواپیما در روزهای نزدیک به پرواز ارزان‌تر می‌شود. بنابراین در صورتی که شرایطتان اجازه می‌دهد، رزرو آنلاین بلیط هواپیما را به روزهای نزدیک پرواز موکول کنید. البته اگر قصد سفر در ایام پرسفر نظیر تعطیلات را دارید، باید هر چه زودتر رزرو بلیط هواپیما را انجام دهید.
+                        </div>
+                    </div>
+
+                    <div class="p-4 cursor-pointer extendable">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-2">
+                                <svg viewBox="0 0 24 24" width="32px" height="32px" fill="currentColor" class="a-accordion__icon  p-1 text-[#17A2B8] bg-[#E8F9FC] rounded-full"><path d="M14.442 16.905c0-1.427-.177-2.564-.531-3.411-.322-.77-.931-1.612-1.827-2.525l-.734-.726c-.787-.786-1.298-1.361-1.533-1.726a3.775 3.775 0 0 1-.646-2.126c0-1.005.249-1.776.747-2.312.498-.536 1.23-.804 2.197-.804.93 0 1.676.26 2.241.782.565.522.847 1.233.847 2.133h3.921c-.028-1.905-.68-3.413-1.953-4.524C15.898.556 14.212 0 12.115 0 9.951 0 8.266.548 7.06 1.645 5.853 2.74 5.25 4.275 5.25 6.248c0 1.752.814 3.476 2.442 5.17l1.996 1.954c.709.813 1.072 1.991 1.092 3.533h3.662Zm.273 5.027c0-.642-.199-1.159-.596-1.551-.397-.393-.936-.59-1.616-.59-.69 0-1.233.204-1.63.611-.397.407-.596.917-.596 1.53 0 .584.194 1.075.582 1.472.387.397.936.596 1.644.596.709 0 1.255-.199 1.637-.596.384-.397.575-.888.575-1.472Z"></path></svg>
+                                <p class="font-black">چند روز قبل از پرواز، بلیط هواپیما را بخریم؟</p>
+                            </div>
+                            <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" class="block rotate-180"><path d="M21.266 16.698a.75.75 0 0 0 1.037-1.08l-.069-.066-9.75-8.25a.75.75 0 0 0-.89-.058l-.078.058-9.75 8.25a.75.75 0 0 0 .893 1.202l.075-.056L12 8.858l9.266 7.84Z"></path></svg>
+                        </div>
+                        <div class="extendable-div max-h-0  transition-[max-height mt-5] duration-300 overflow-hidden leading-9 text-gray-500 px-10">
+                            امکان رزرو بلیط هواپیما از ماه‌ها قبل وجود دارد. اما گاهی اوقات قیمت بلیط هواپیما در روزهای نزدیک به پرواز ارزان‌تر می‌شود. بنابراین در صورتی که شرایطتان اجازه می‌دهد، رزرو آنلاین بلیط هواپیما را به روزهای نزدیک پرواز موکول کنید. البته اگر قصد سفر در ایام پرسفر نظیر تعطیلات را دارید، باید هر چه زودتر رزرو بلیط هواپیما را انجام دهید.
                         </div>
                     </div>
                 </div>
