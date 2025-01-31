@@ -330,6 +330,10 @@ travelIcons.forEach((icon) => {
     
     icon.style.cursor = "pointer";
     icon.addEventListener('click',(e)=>{
+        let lowerHeaderImg = document.querySelectorAll(".lower-header-img");
+        // lowerHeaderImg.classList.remove("opacity-100")
+        // lowerHeaderImg.classList.add("opacity-0")
+        // lowerHeaderImg.src = "./imgs/hero-b5a880ed.webp"
         //move blue line below each icon
         let underliner = document.getElementById("underliner");
         const offsetRight = (window.innerWidth - document.getElementById("main-menu").clientWidth) / 2;
@@ -340,6 +344,24 @@ travelIcons.forEach((icon) => {
             el.classList.remove("text-blue-600")
         })
         e.currentTarget.classList.add("text-blue-600");
+
+        // changing lower-header-img with animation effect
+        let currentImgSrc = e.currentTarget.classList[e.currentTarget.classList.length - 2];
+        console.log(currentImgSrc.toLowerCase());
+        lowerHeaderImg.forEach(img=>{
+            if (img.src.includes(currentImgSrc.toLowerCase())) {
+                console.log(img);
+                img.classList.add("z-10")
+                img.classList.remove("opacity-50")
+                img.classList.add("opacity-100")
+            }else{
+
+                img.classList.remove("z-10")
+                img.classList.remove("opacity-100")
+                img.classList.add("opacity-50")
+            }
+        })
+        
     //it will filter the type-of-travel-icons div and show which icons inside of this div have a same class as a dropDownBtnContext obj
         let filteredTravelDesc = [];
         e.currentTarget.className.split(" ").forEach(el=>{
@@ -356,23 +378,6 @@ travelIcons.forEach((icon) => {
         }
     })
 })
-
-// const dropDownBtn = document.querySelector(".drop-down-btn");
-
-// const travelDescription = document.getElementById("type-of-travel-desc");
-// const domesticFlightTab = document.querySelector(".DomesticFlight");
-
-
-// let foreignFlightTab = document.createElement("div")
-// foreignFlightTab.innerHTML = domesticFlightTab.innerHTML;
-// foreignFlightTab.classList.add("px-10", "py-6")
-// document.getElementById("type-of-travel").append(foreignFlightTab)
-
-
-// dropDownBtn.addEventListener("click",(e)=>{
-//     // console.log(e.currentTarget);
-    
-// })
 
 const passengerInput = document.querySelector("#passenger-num")
 const passengerList = document.querySelector("#passenger-list")
