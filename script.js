@@ -35,6 +35,60 @@ headerNavBtnList.forEach(e=>{
     document.getElementById(`${e.name}`).append(ul)
     
 })
+
+
+let originDest = document.querySelectorAll(".selectableCities");
+let originList = document.querySelector(".destination-list");
+console.log(originDest);
+originDest.forEach(input=>{
+    input.addEventListener("click",(e)=>{
+        // if(originList.classList.contains("hidden")){
+        //     console.log("hi");
+        //     originList.style.top = "30px"
+        // }
+        originList.classList.remove("hidden")
+        // let originX = document.getElementById("origin").getBoundingClientRect().x
+        if(e.currentTarget.id == "origin"){
+            let isUlAvail = Array.from(input.children).filter(child=>child.tagName === "UL");
+            if( isUlAvail.length == 0 ){
+                input.appendChild(originList)
+                console.log(input);
+                
+            }
+            originList.classList.add("top-14")
+
+        }else if(e.currentTarget.id == "destination"){
+            input.appendChild(originList)
+            // originList.style.top = "52px"
+            // originList.style.left = "0"
+            // console.log(originList.parentElement.);
+            // console.log(input);
+            // originList.remove()
+        }
+        
+        // originList.classList.add("transition-all")
+        
+        if(e.target.tagName == "A"){
+            input.firstElementChild.value = e.target.lastElementChild.innerHTML;
+            
+            
+        }  
+    })
+    input.firstElementChild.addEventListener("input", (e)=>{
+        console.log(e.target.value.length);
+        
+        if(e.target.value != ""){
+            input.querySelector(".delete-btn").classList.remove("hidden")
+        }else{
+            input.querySelector(".delete-btn").classList.add("hidden")
+        }
+    })
+})
+
+
+
+
+
 // show up the Pop Up Menus when you clicked on the navigator tab!
 const headerNavBtn = document.querySelectorAll("#container .nav-header nav div");
 headerNavBtn.forEach(e=>{
@@ -82,6 +136,12 @@ document.addEventListener('click', (event) => {
         ul.classList.add("hidden");
       }  
     });
+    if( !originList.contains(event.target) && Array.from(originDest).filter(e=>e.contains(event.target)).length == 0 ){
+        originList.classList.add("hidden")
+        
+    }
+    
+    
   });
   
 // used for header navigator to show/hide when document scrolled up/down
@@ -309,7 +369,6 @@ travelIcons.forEach((icon) => {
                     const sum = addDelBtnStack.reduce((prev,current)=>{
                             return prev + +current.value
                         },0)
-                        console.log(sum);
                     passengerInput.placeholder = `${sum} مسافر`
                 })
         })
@@ -331,9 +390,6 @@ travelIcons.forEach((icon) => {
     icon.style.cursor = "pointer";
     icon.addEventListener('click',(e)=>{
         let lowerHeaderImg = document.querySelectorAll(".lower-header-img");
-        // lowerHeaderImg.classList.remove("opacity-100")
-        // lowerHeaderImg.classList.add("opacity-0")
-        // lowerHeaderImg.src = "./imgs/hero-b5a880ed.webp"
         //move blue line below each icon
         let underliner = document.getElementById("underliner");
         const offsetRight = (window.innerWidth - document.getElementById("main-menu").clientWidth) / 2;
@@ -347,10 +403,8 @@ travelIcons.forEach((icon) => {
 
         // changing lower-header-img with animation effect
         let currentImgSrc = e.currentTarget.classList[e.currentTarget.classList.length - 2];
-        console.log(currentImgSrc.toLowerCase());
         lowerHeaderImg.forEach(img=>{
             if (img.src.includes(currentImgSrc.toLowerCase())) {
-                console.log(img);
                 img.classList.add("z-10")
                 img.classList.remove("opacity-50")
                 img.classList.add("opacity-100")
@@ -413,7 +467,6 @@ let addDelBtnStack =
 addDeleteBtns.forEach(addBtn=>{
     if(addBtn.innerHTML == "remove"){
         if(addBtn.previousElementSibling.innerHTML == 0){
-            console.log("hi");
         }
             
         }
@@ -493,7 +546,7 @@ const swiper = new Swiper('.swiper', {
   
 
 const extendableDivs = document.querySelectorAll(".extendable");
-console.log(extendableDivs);
+
 const exDiv = document.querySelector(".extendable-div");
 extendableDivs.forEach(exDiv=>{
     exDiv.addEventListener("click", ()=>{

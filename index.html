@@ -86,7 +86,24 @@
         }
         /* Active bullet */
         .swiper-pagination-bullet-active {
-        background-color: #ff5722; /* Change active bullet color */
+            background-color: #ff5722; /* Change active bullet color */
+        }
+        .destination-list::-webkit-scrollbar {
+            width: 5px; /* Scrollbar width */
+        }
+
+        .destination-list::-webkit-scrollbar-track {
+            background: #f3f4f6; /* Track color (gray-200 in Tailwind) */
+            border-radius: 4px;
+        }
+
+        .destination-list::-webkit-scrollbar-thumb {
+            background: #6b728041; /* Thumb color (gray-500 in Tailwind) */
+            border-radius: 4px;
+        }
+
+        .destination-list::-webkit-scrollbar-thumb:hover {
+            background: #4b556350; /* Darker thumb on hover (gray-600) */
         }
     </style>
 </head>
@@ -187,12 +204,65 @@
                     </div>
                     <div class="flex items-center justify-between gap-2 DomesticFlightInputs">
                         <div class="flex items-center relative w-[40%]">
-                            <div>
-                                <input type="text" placeholder="مبدا (شهر)" class="border-r border-y outline-none border-gray-300 w-full pr-4 py-3 rounded-tr-lg rounded-br-lg">
+                            <div id="origin" class="relative selectableCities">
+                                <input type="text" placeholder="مبدا (شهر)" class="relative border-r border-y outline-none border-gray-300 w-full pr-4 py-3 rounded-tr-lg rounded-br-lg">
+                                <svg viewBox="0 0 24 24" width="18px" height="18px" fill="currentColor" class="cursor-pointer absolute hidden top-1/3 left-6  text-gray-300 shrink-0 text-grays-200 hover:text-grays-300 delete-btn"><path d="M16.545 14.954a1.124 1.124 0 1 1-1.59 1.591L12 13.591l-2.955 2.954a1.122 1.122 0 0 1-1.59 0 1.124 1.124 0 0 1 0-1.59L10.409 12 7.455 9.045a1.124 1.124 0 1 1 1.59-1.59L12 10.408l2.955-2.955a1.124 1.124 0 1 1 1.59 1.591L13.591 12l2.954 2.954ZM12 1.5C6.21 1.5 1.5 6.21 1.5 12S6.21 22.5 12 22.5 22.5 17.79 22.5 12 17.79 1.5 12 1.5Z"></path></svg>
+                                <ul class="absolute  destination-list top-0 hidden shadow-lg bg-white w-full rounded-lg border border-gray-300 pt-[2px] text-sm z-10 max-h-[300px] overflow-scroll overflow-x-hidden transition-all">
+                                    <li class="bg-gray-100 text-xs text-gray-600 px-4 py-2">پر تردد</li>
+                                    <li class=" hover:bg-blue-50 transition-all">
+                                        <a href="#" class="flex justify-start mx-4 border-b border-gray-300 py-4">
+                                            <svg viewBox="0 0 24 24" width="24px" height="24px" fill="currentColor" class="ml-2 shrink-0 text-gray-400"><path d="M11.28 1.534c4.437-.419 8.22 3.11 8.22 7.59 0 4.053-1.89 7.941-6.398 12.888-.593.65-1.62.651-2.212 0-4.219-4.628-6.14-8.33-6.374-12.09-.263-4.237 2.701-8.005 6.765-8.388ZM18 9.124c0-3.604-3.031-6.432-6.579-6.097C8.192 3.332 5.8 6.374 6.013 9.83c.21 3.37 1.977 6.775 5.982 11.17l.531-.59c3.803-4.306 5.402-7.66 5.471-11.054L18 9.124ZM12 5.25a3.75 3.75 0 1 1 0 7.5 3.75 3.75 0 0 1 0-7.5Zm0 1.5a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z" fill-rule="evenodd"></path></svg>
+                                            <span>تهران</span>
+                                        </a>
+                                    </li>
+                                    <li class=" hover:bg-blue-50 transition-all">
+                                        <a href="#" class="flex justify-start mx-4 border-b border-gray-300 py-4">
+                                            <svg viewBox="0 0 24 24" width="24px" height="24px" fill="currentColor" class="ml-2 shrink-0 text-gray-400"><path d="M11.28 1.534c4.437-.419 8.22 3.11 8.22 7.59 0 4.053-1.89 7.941-6.398 12.888-.593.65-1.62.651-2.212 0-4.219-4.628-6.14-8.33-6.374-12.09-.263-4.237 2.701-8.005 6.765-8.388ZM18 9.124c0-3.604-3.031-6.432-6.579-6.097C8.192 3.332 5.8 6.374 6.013 9.83c.21 3.37 1.977 6.775 5.982 11.17l.531-.59c3.803-4.306 5.402-7.66 5.471-11.054L18 9.124ZM12 5.25a3.75 3.75 0 1 1 0 7.5 3.75 3.75 0 0 1 0-7.5Zm0 1.5a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z" fill-rule="evenodd"></path></svg>
+                                            <span>اهواز</span>
+                                        </a>
+                                    </li>
+                                    <li class=" hover:bg-blue-50 transition-all">
+                                        <a href="#" class="flex justify-start mx-4 border-b border-gray-300 py-4">
+                                            <svg viewBox="0 0 24 24" width="24px" height="24px" fill="currentColor" class="ml-2 shrink-0 text-gray-400"><path d="M11.28 1.534c4.437-.419 8.22 3.11 8.22 7.59 0 4.053-1.89 7.941-6.398 12.888-.593.65-1.62.651-2.212 0-4.219-4.628-6.14-8.33-6.374-12.09-.263-4.237 2.701-8.005 6.765-8.388ZM18 9.124c0-3.604-3.031-6.432-6.579-6.097C8.192 3.332 5.8 6.374 6.013 9.83c.21 3.37 1.977 6.775 5.982 11.17l.531-.59c3.803-4.306 5.402-7.66 5.471-11.054L18 9.124ZM12 5.25a3.75 3.75 0 1 1 0 7.5 3.75 3.75 0 0 1 0-7.5Zm0 1.5a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z" fill-rule="evenodd"></path></svg>
+                                            <span>شیراز</span>
+                                        </a>
+                                    </li>
+                                    <li class=" hover:bg-blue-50 transition-all">
+                                        <a href="#" class="flex justify-start mx-4 border-b border-gray-300 py-4">
+                                            <svg viewBox="0 0 24 24" width="24px" height="24px" fill="currentColor" class="ml-2 shrink-0 text-gray-400"><path d="M11.28 1.534c4.437-.419 8.22 3.11 8.22 7.59 0 4.053-1.89 7.941-6.398 12.888-.593.65-1.62.651-2.212 0-4.219-4.628-6.14-8.33-6.374-12.09-.263-4.237 2.701-8.005 6.765-8.388ZM18 9.124c0-3.604-3.031-6.432-6.579-6.097C8.192 3.332 5.8 6.374 6.013 9.83c.21 3.37 1.977 6.775 5.982 11.17l.531-.59c3.803-4.306 5.402-7.66 5.471-11.054L18 9.124ZM12 5.25a3.75 3.75 0 1 1 0 7.5 3.75 3.75 0 0 1 0-7.5Zm0 1.5a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z" fill-rule="evenodd"></path></svg>
+                                            <span>مشهد</span>
+                                        </a>
+                                    </li>
+                                    <li class=" hover:bg-blue-50 transition-all">
+                                        <a href="#" class="flex justify-start mx-4 border-b border-gray-300 py-4">
+                                            <svg viewBox="0 0 24 24" width="24px" height="24px" fill="currentColor" class="ml-2 shrink-0 text-gray-400"><path d="M11.28 1.534c4.437-.419 8.22 3.11 8.22 7.59 0 4.053-1.89 7.941-6.398 12.888-.593.65-1.62.651-2.212 0-4.219-4.628-6.14-8.33-6.374-12.09-.263-4.237 2.701-8.005 6.765-8.388ZM18 9.124c0-3.604-3.031-6.432-6.579-6.097C8.192 3.332 5.8 6.374 6.013 9.83c.21 3.37 1.977 6.775 5.982 11.17l.531-.59c3.803-4.306 5.402-7.66 5.471-11.054L18 9.124ZM12 5.25a3.75 3.75 0 1 1 0 7.5 3.75 3.75 0 0 1 0-7.5Zm0 1.5a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z" fill-rule="evenodd"></path></svg>
+                                            <span>بندرعباس</span>
+                                        </a>
+                                    </li>
+                                    <li class=" hover:bg-blue-50 transition-all">
+                                        <a href="#" class="flex justify-start mx-4 border-b border-gray-300 py-4">
+                                            <svg viewBox="0 0 24 24" width="24px" height="24px" fill="currentColor" class="ml-2 shrink-0 text-gray-400"><path d="M11.28 1.534c4.437-.419 8.22 3.11 8.22 7.59 0 4.053-1.89 7.941-6.398 12.888-.593.65-1.62.651-2.212 0-4.219-4.628-6.14-8.33-6.374-12.09-.263-4.237 2.701-8.005 6.765-8.388ZM18 9.124c0-3.604-3.031-6.432-6.579-6.097C8.192 3.332 5.8 6.374 6.013 9.83c.21 3.37 1.977 6.775 5.982 11.17l.531-.59c3.803-4.306 5.402-7.66 5.471-11.054L18 9.124ZM12 5.25a3.75 3.75 0 1 1 0 7.5 3.75 3.75 0 0 1 0-7.5Zm0 1.5a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z" fill-rule="evenodd"></path></svg>
+                                            <span>اصفهان</span>
+                                        </a>
+                                    </li>
+                                    <li class=" hover:bg-blue-50 transition-all">
+                                        <a href="#" class="flex justify-start mx-4 border-b border-gray-300 py-4">
+                                            <svg viewBox="0 0 24 24" width="24px" height="24px" fill="currentColor" class="ml-2 shrink-0 text-gray-400"><path d="M11.28 1.534c4.437-.419 8.22 3.11 8.22 7.59 0 4.053-1.89 7.941-6.398 12.888-.593.65-1.62.651-2.212 0-4.219-4.628-6.14-8.33-6.374-12.09-.263-4.237 2.701-8.005 6.765-8.388ZM18 9.124c0-3.604-3.031-6.432-6.579-6.097C8.192 3.332 5.8 6.374 6.013 9.83c.21 3.37 1.977 6.775 5.982 11.17l.531-.59c3.803-4.306 5.402-7.66 5.471-11.054L18 9.124ZM12 5.25a3.75 3.75 0 1 1 0 7.5 3.75 3.75 0 0 1 0-7.5Zm0 1.5a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z" fill-rule="evenodd"></path></svg>
+                                            <span>تبریز</span>
+                                        </a>
+                                    </li>
+                                    <li class=" hover:bg-blue-50 transition-all">
+                                        <a href="#" class="flex justify-start mx-4  py-4">
+                                            <svg viewBox="0 0 24 24" width="24px" height="24px" fill="currentColor" class="ml-2 shrink-0 text-gray-400"><path d="M11.28 1.534c4.437-.419 8.22 3.11 8.22 7.59 0 4.053-1.89 7.941-6.398 12.888-.593.65-1.62.651-2.212 0-4.219-4.628-6.14-8.33-6.374-12.09-.263-4.237 2.701-8.005 6.765-8.388ZM18 9.124c0-3.604-3.031-6.432-6.579-6.097C8.192 3.332 5.8 6.374 6.013 9.83c.21 3.37 1.977 6.775 5.982 11.17l.531-.59c3.803-4.306 5.402-7.66 5.471-11.054L18 9.124ZM12 5.25a3.75 3.75 0 1 1 0 7.5 3.75 3.75 0 0 1 0-7.5Zm0 1.5a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z" fill-rule="evenodd"></path></svg>
+                                            <span>کیش</span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
-                            <svg viewBox="0 0 24 24" width="1.5em" fill="currentColor" class="text-gray-500 origin-dest-svg bg-gray-100 border border-gray-300 absolute left-2/4 -translate-x-[50%] xl:-translate-x-[25%] rounded-full w-7 h-7 p-1"><path d="m16.96 12.157.07.063 3.75 3.75a.757.757 0 0 1 .06.067l-.06-.067a.748.748 0 0 1 .22.53v.025a.728.728 0 0 1-.003.039L21 16.5a.747.747 0 0 1-.147.446l-.01.014-.008.01-.055.06-3.75 3.75a.75.75 0 0 1-1.123-.99l.063-.07 2.469-2.47H8.25a.75.75 0 0 1-.087-1.495l.087-.005h10.189l-2.47-2.47a.75.75 0 0 1-.062-.99l.063-.07a.75.75 0 0 1 .99-.063ZM8.03 3.22a.75.75 0 0 1 .063.99l-.063.07-2.47 2.47h10.19a.75.75 0 0 1 .088 1.495l-.088.005H5.56l2.47 2.47a.75.75 0 0 1 .063.99l-.063.07a.75.75 0 0 1-.99.063l-.07-.063-3.75-3.75-.055-.06a.644.644 0 0 1-.005-.007l.06.067A.756.756 0 0 1 3 7.5v-.014a.47.47 0 0 1 .003-.053L3 7.5a.756.756 0 0 1 .22-.53l3.75-3.75a.75.75 0 0 1 1.06 0Z"></path></svg>
-                            <div>
+                            <svg viewBox="0 0 24 24" width="1.5em" fill="currentColor" class="text-gray-500 z-10 origin-dest-svg bg-gray-100 border border-gray-300 absolute left-2/4 -translate-x-[50%] xl:-translate-x-[25%] rounded-full w-7 h-7 p-1"><path d="m16.96 12.157.07.063 3.75 3.75a.757.757 0 0 1 .06.067l-.06-.067a.748.748 0 0 1 .22.53v.025a.728.728 0 0 1-.003.039L21 16.5a.747.747 0 0 1-.147.446l-.01.014-.008.01-.055.06-3.75 3.75a.75.75 0 0 1-1.123-.99l.063-.07 2.469-2.47H8.25a.75.75 0 0 1-.087-1.495l.087-.005h10.189l-2.47-2.47a.75.75 0 0 1-.062-.99l.063-.07a.75.75 0 0 1 .99-.063ZM8.03 3.22a.75.75 0 0 1 .063.99l-.063.07-2.47 2.47h10.19a.75.75 0 0 1 .088 1.495l-.088.005H5.56l2.47 2.47a.75.75 0 0 1 .063.99l-.063.07a.75.75 0 0 1-.99.063l-.07-.063-3.75-3.75-.055-.06a.644.644 0 0 1-.005-.007l.06.067A.756.756 0 0 1 3 7.5v-.014a.47.47 0 0 1 .003-.053L3 7.5a.756.756 0 0 1 .22-.53l3.75-3.75a.75.75 0 0 1 1.06 0Z"></path></svg>
+                            <div id="destination" class="relative selectableCities">
                                 <input type="text" placeholder="مقصد (شهر)" class="border outline-none border-gray-300 w-full py-3 rounded-tl-lg pr-4  rounded-bl-lg">
+                                <svg viewBox="0 0 24 24" width="18px" height="18px" fill="currentColor" class="cursor-pointer absolute top-1/3 hidden left-6 text-gray-300 shrink-0 text-grays-200 hover:text-grays-300 delete-btn"><path d="M16.545 14.954a1.124 1.124 0 1 1-1.59 1.591L12 13.591l-2.955 2.954a1.122 1.122 0 0 1-1.59 0 1.124 1.124 0 0 1 0-1.59L10.409 12 7.455 9.045a1.124 1.124 0 1 1 1.59-1.59L12 10.408l2.955-2.955a1.124 1.124 0 1 1 1.59 1.591L13.591 12l2.954 2.954ZM12 1.5C6.21 1.5 1.5 6.21 1.5 12S6.21 22.5 12 22.5 22.5 17.79 22.5 12 17.79 1.5 12 1.5Z"></path></svg>
                             </div>
                         </div>
                         <div class="w-[60%] flex gap-2">
