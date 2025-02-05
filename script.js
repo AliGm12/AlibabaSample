@@ -39,49 +39,121 @@ headerNavBtnList.forEach(e=>{
 
 let originDest = document.querySelectorAll(".selectableCities");
 let originList = document.querySelector(".destination-list");
-console.log(originDest);
+let secondInput = document.getElementById("destination");
+const clonedList = originList.cloneNode(true);
+secondInput.append(clonedList)
+
 originDest.forEach(input=>{
-    input.addEventListener("click",(e)=>{
-        // if(originList.classList.contains("hidden")){
-        //     console.log("hi");
-        //     originList.style.top = "30px"
-        // }
-        originList.classList.remove("hidden")
-        // let originX = document.getElementById("origin").getBoundingClientRect().x
-        if(e.currentTarget.id == "origin"){
-            let isUlAvail = Array.from(input.children).filter(child=>child.tagName === "UL");
-            if( isUlAvail.length == 0 ){
-                input.appendChild(originList)
-                console.log(input);
+    //it will show the list below every input
+    input.addEventListener("click", (event)=>{
+        event.currentTarget.lastElementChild.classList.remove("invisible")
+        event.currentTarget.lastElementChild.classList.remove("opacity-0")
+        event.currentTarget.lastElementChild.classList.add("visible")
+        event.currentTarget.lastElementChild.classList.add("top-14")
+        if (event.currentTarget.id == "origin") {
+            document.querySelectorAll(".destination-list").forEach(list=>{
+                if(list.classList.contains("visible") && list.parentElement.id != "origin"){
+                    list.classList.add("invisible");
+                    list.classList.add("opacity-0");
+                    list.classList.remove("top-14");
+                }
+            })
+        }else{
+            document.querySelectorAll(".destination-list").forEach(list=>{
+                if(list.classList.contains("visible") && list.parentElement.id != "destination"){
+                    list.classList.add("invisible");
+                    list.classList.add("opacity-0");
+                    list.classList.remove("top-14");
+                }
+            })
+        } 
+    })
+    //"input"EVENT for input
+    input.firstElementChild.addEventListener("input",(e)=>{
+        //DELETE-BTN Show Up!
+        if(e.currentTarget.value == ""){
+            e.currentTarget.nextElementSibling.classList.add("hidden")
+        }else{
+            e.currentTarget.nextElementSibling.classList.remove("hidden")
+        }
+        const listLis = Array.from(input.lastElementChild.children)
+        //Array of Matched Input Value!
+        const filteredListLis = listLis.filter(li=>(li.innerText.includes(e.currentTarget.value) && li.innerText != "هیچی وجود ندارد."))
+        //Loop for UL List to Set An Attribute For Filtered Li's.
+        listLis.forEach(li=>{
+            //it set active of all to false before the specific condition
+            if(li.classList.contains("transition-all")){
+                li.dataset.active = "false";
+            }
+            
+            //first li always should be active
+            if(li.matches(".bg-gray-100")){
+                li.dataset.active = "true";
+            }
+            //it will set active to true for filtered ones!
+            for(let key of filteredListLis){
+                if(li.innerText.includes(key.innerText) ){
+                    li.dataset.active = "true"
+                }
+            }
+        })
+
+        listLis.forEach(li=>{
+            li.dataset.active != "true" && li.innerText != "هیچی وجود ندارد." ? li.classList.add("hidden") : li.classList.remove("hidden")
+        })
+        const activeItems = Array.from(listLis).filter(item => item.dataset.active === 'true');
+        if(activeItems.length == 1){
+            if(input.lastElementChild.lastElementChild.innerHTML != "هیچی وجود ندارد."){                
+                const emptyLi = document.createElement("li");
+                emptyLi.innerHTML = "هیچی وجود ندارد.";
+                input.lastElementChild.append(emptyLi)
+            }
+        }else{
+            for(let key of input.lastElementChild.children){
+                if(key.innerHTML == "هیچی وجود ندارد."){
+                    input.lastElementChild.removeChild(key)
+                    
+                }
                 
             }
-            originList.classList.add("top-14")
-
-        }else if(e.currentTarget.id == "destination"){
-            input.appendChild(originList)
-            // originList.style.top = "52px"
-            // originList.style.left = "0"
-            // console.log(originList.parentElement.);
-            // console.log(input);
-            // originList.remove()
+            
+            // if(input.lastElementChild)
+            // input.lastElementChild.removeChild(emptyLi)
         }
         
-        // originList.classList.add("transition-all")
+        // input.lastElementChild.innerHTML = "";
+        // input.lastElementChild.append(listLiHeader,...filteredListLis)
+    })
+
+    input.lastElementChild.addEventListener("click",(e)=>{
+        console.log(input.lastElementChild.parentNode.id);
         
         if(e.target.tagName == "A"){
-            input.firstElementChild.value = e.target.lastElementChild.innerHTML;
+            e.target.closest(`#${input.lastElementChild.parentNode.id}`).firstElementChild.value = e.target.innerText
+            // console.log(e.currentTarget.classList);
             
-            
-        }  
-    })
-    input.firstElementChild.addEventListener("input", (e)=>{
-        console.log(e.target.value.length);
-        
-        if(e.target.value != ""){
-            input.querySelector(".delete-btn").classList.remove("hidden")
-        }else{
-            input.querySelector(".delete-btn").classList.add("hidden")
+            e.currentTarget.classList.remove("visible")
+            e.currentTarget.classList.add("invisible")
+            // Manually trigger the input event
+            const inputEvent = new Event('input', {
+                bubbles: true,        // Allow the event to bubble
+                cancelable: true      // Allow the event to be cancelled if needed
+              });
+          
+            input.firstElementChild.dispatchEvent(inputEvent);
         }
+    })
+})
+
+document.querySelectorAll(".delete-btn").forEach(deleteBtn=>{
+    deleteBtn.addEventListener("click",(e)=>{
+        e.currentTarget.previousElementSibling.value = ""
+        
+        const inputEvent = new Event('input', {
+            bubbles: true,        // Allow the event to bubble
+            cancelable: true      // Allow the event to be cancelled if needed
+          });
+        e.currentTarget.previousElementSibling.dispatchEvent(inputEvent)
     })
 })
 
@@ -137,7 +209,12 @@ document.addEventListener('click', (event) => {
       }  
     });
     if( !originList.contains(event.target) && Array.from(originDest).filter(e=>e.contains(event.target)).length == 0 ){
-        originList.classList.add("hidden")
+        originList.classList.add("invisible")
+        originList.classList.add("opacity-0")
+        originList.classList.remove("top-14")
+        clonedList.classList.add("invisible")
+        clonedList.classList.add("opacity-0")
+        clonedList.classList.remove("top-14")
         
     }
     
