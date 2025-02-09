@@ -46,27 +46,29 @@ secondInput.append(clonedList)
 originDest.forEach(input=>{
     //it will show the list below every input
     input.addEventListener("click", (event)=>{
-        event.currentTarget.lastElementChild.classList.remove("invisible")
-        event.currentTarget.lastElementChild.classList.remove("opacity-0")
-        event.currentTarget.lastElementChild.classList.add("visible")
-        event.currentTarget.lastElementChild.classList.add("top-14")
-        if (event.currentTarget.id == "origin") {
-            document.querySelectorAll(".destination-list").forEach(list=>{
-                if(list.classList.contains("visible") && list.parentElement.id != "origin"){
-                    list.classList.add("invisible");
-                    list.classList.add("opacity-0");
-                    list.classList.remove("top-14");
-                }
-            })
-        }else{
-            document.querySelectorAll(".destination-list").forEach(list=>{
-                if(list.classList.contains("visible") && list.parentElement.id != "destination"){
-                    list.classList.add("invisible");
-                    list.classList.add("opacity-0");
-                    list.classList.remove("top-14");
-                }
-            })
-        } 
+        if(event.target.tagName == "INPUT"){
+            event.currentTarget.lastElementChild.classList.remove("invisible")
+            event.currentTarget.lastElementChild.classList.remove("opacity-0")
+            event.currentTarget.lastElementChild.classList.add("visible")
+            event.currentTarget.lastElementChild.classList.add("top-14")
+            if (event.currentTarget.id == "origin") {
+                document.querySelectorAll(".destination-list").forEach(list=>{
+                    if(list.classList.contains("visible") && list.parentElement.id != "origin"){
+                        list.classList.add("invisible");
+                        list.classList.add("opacity-0");
+                        list.classList.remove("top-14");
+                    }
+                })
+            }else{
+                document.querySelectorAll(".destination-list").forEach(list=>{
+                    if(list.classList.contains("visible") && list.parentElement.id != "destination"){
+                        list.classList.add("invisible");
+                        list.classList.add("opacity-0");
+                        list.classList.remove("top-14");
+                    }
+                })
+            } 
+        }
     })
     //"input"EVENT for input
     input.firstElementChild.addEventListener("input",(e)=>{
@@ -116,24 +118,16 @@ originDest.forEach(input=>{
                 }
                 
             }
-            
-            // if(input.lastElementChild)
-            // input.lastElementChild.removeChild(emptyLi)
         }
-        
-        // input.lastElementChild.innerHTML = "";
-        // input.lastElementChild.append(listLiHeader,...filteredListLis)
     })
-
+    //Click Event For UL Lists
     input.lastElementChild.addEventListener("click",(e)=>{
-        console.log(input.lastElementChild.parentNode.id);
-        
+        //set the value in input and open/close it
         if(e.target.tagName == "A"){
             e.target.closest(`#${input.lastElementChild.parentNode.id}`).firstElementChild.value = e.target.innerText
-            // console.log(e.currentTarget.classList);
-            
             e.currentTarget.classList.remove("visible")
             e.currentTarget.classList.add("invisible")
+            e.currentTarget.classList.add("opacity-0")
             // Manually trigger the input event
             const inputEvent = new Event('input', {
                 bubbles: true,        // Allow the event to bubble
@@ -399,58 +393,6 @@ travelIcons.forEach((icon) => {
             }
         })
 
-        const addDeleteBtns = passengerList.querySelectorAll("li .add-delete-btn");
-        let addDelBtnStack = 
-        [
-            {
-                key : 'بزرگسال',
-                value : 1
-            },
-            {
-                key : 'کودک',
-                value : 0
-            },
-            {
-                key : 'نوزاد',
-                value : 0
-            }
-        ];
-        addDeleteBtns.forEach(addBtn=>{
-
-                addBtn.addEventListener("click", (e) => {
-                    let titleName;
-                    if(e.currentTarget.innerHTML == 'add'){
-                        e.currentTarget.nextElementSibling.innerHTML = +e.currentTarget.nextElementSibling.innerHTML + 1
-                        titleName = e.currentTarget.nextElementSibling.parentNode.previousElementSibling.firstElementChild.innerHTML;
-
-                        addDelBtnStack.forEach(el=>{
-                            if(el.key == titleName){
-                                el.value = +e.currentTarget.nextElementSibling.innerHTML;
-                            }
-
-                        })
-                    }else{
-                        if(e.currentTarget.previousElementSibling.innerHTML != 0){
-                            e.currentTarget.previousElementSibling.innerHTML = +e.currentTarget.previousElementSibling.innerHTML - 1
-                        }
-                        titleName = e.currentTarget.previousElementSibling.parentNode.previousElementSibling.firstElementChild.innerHTML;
-                        addDelBtnStack.forEach(el=>{
-                            if(el.key == titleName){
-                                el.value = +e.currentTarget.previousElementSibling.innerHTML;
-                            }
-
-                        })
-                        
-                    }
-                    
-                    const sum = addDelBtnStack.reduce((prev,current)=>{
-                            return prev + +current.value
-                        },0)
-                    passengerInput.placeholder = `${sum} مسافر`
-                })
-        })
-
-
         document.addEventListener('click', (event) => {
             if(!passengerList.contains(event.target) && !passengerInput.contains(event.target)){
                 passengerList.classList.add("invisible")
@@ -543,14 +485,19 @@ let addDelBtnStack =
 ];
 addDeleteBtns.forEach(addBtn=>{
     if(addBtn.innerHTML == "remove"){
-        if(addBtn.previousElementSibling.innerHTML == 0){
-        }
+        // if(addBtn.previousElementSibling.innerHTML == 0){
+        //     addBtn.style.cursor = "not-allowed"
+        // }else{
+        //     addBtn.style.cursor = "pointer"
+        // }
             
         }
         addBtn.addEventListener("click", (e) => {
 
             let titleName;
             if(e.currentTarget.innerHTML == 'add'){
+                console.log("hi");
+                
                 e.currentTarget.nextElementSibling.innerHTML = +e.currentTarget.nextElementSibling.innerHTML + 1
                 titleName = e.currentTarget.nextElementSibling.parentNode.previousElementSibling.firstElementChild.innerHTML;
 
@@ -563,9 +510,11 @@ addDeleteBtns.forEach(addBtn=>{
             }else{
                 if(e.currentTarget.previousElementSibling.innerHTML != 0){
                     e.currentTarget.previousElementSibling.innerHTML = +e.currentTarget.previousElementSibling.innerHTML - 1
-                }else{
+                }else if(e.currentTarget.previousElementSibling.innerHTML <= 2){
                     e.currentTarget.style.cursor = "not-allowed"
                 }
+                console.log(e.currentTarget.previousElementSibling.parentNode.previousElementSibling.firstElementChild.innerHTML);
+                
                 titleName = e.currentTarget.previousElementSibling.parentNode.previousElementSibling.firstElementChild.innerHTML;
                 addDelBtnStack.forEach(el=>{
                     if(el.key == titleName){
