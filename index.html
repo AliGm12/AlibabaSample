@@ -6,11 +6,15 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/persian-datepicker.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./js/persian-date.js"></script>
+    <script src="./js/persian-datepicker.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <style>
         .snow::after{
@@ -271,7 +275,7 @@
                         <div class="w-[60%] flex gap-2">
                             <div class="flex w-[45%]">
                                 <input type="text" class="border-y outline-none border-r w-full border-gray-300 py-2 pr-5 rounded-tr-lg rounded-br-lg date-picker" placeholder="تاریخ رفت">
-                                <input type="text" class="border w-full outline-none border-gray-300 bg-gray-100 py-2 pr-5 rounded-tl-lg rounded-bl-lg" placeholder="تاریخ بازگشت +">
+                                <input type="text" class="border w-full outline-none border-gray-300 bg-gray-100 py-2 pr-5 rounded-tl-lg rounded-bl-lg date-picker2" placeholder="تاریخ بازگشت +">
                             </div>
                             <div class="relative w-[27.5%]">
                                 <label for="passenger-num" class="text-[11px] text-gray-400 absolute -top-2 right-3 bg-white px-1">مسافران</label>
@@ -593,6 +597,7 @@
             </div>
         </section>
     </div>
+
 
     <script src="script.js"></script>
 </body>

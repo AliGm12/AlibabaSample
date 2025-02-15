@@ -1,3 +1,5 @@
+// const persianDate = require("./js/persian-date");
+
 const headerNavBtnList = [
     {
         name : "ticket",
@@ -596,3 +598,34 @@ extendableDivs.forEach(exDiv=>{
 
 
 
+$(document).ready(function() {
+    let today = new persianDate()
+    let nexttwoWeek = today.add("d", 14); // Add 14 days
+    $(".date-picker").pDatepicker({
+        initialValue : false,
+        format: 'YYYY/MM/DD',
+        minDate : today,
+        maxDate : nexttwoWeek,
+        navigator:{
+            scroll:{
+                enabled: false
+            }
+        },
+        onSelect : function(unix){
+            console.log("hi",unix);
+            
+        }
+    });
+    $(".date-picker2").pDatepicker({
+        initialValue : false,
+        format: 'YYYY/MM/DD',
+        minDate : today,
+        maxDate : nexttwoWeek,
+        navigator:{
+            scroll:{
+                enabled: false
+            }
+        },
+    });
+    
+  });
