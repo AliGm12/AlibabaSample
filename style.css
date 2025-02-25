@@ -9,3 +9,73 @@
 body{
     font-family: alibaba;
 }
+
+#plotId{
+    border-radius: 10px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+#plotId .datepicker-navigator{
+
+}
+#plotId .toolbox{
+    order: -1;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    border-bottom: 1px solid gray;
+    padding:5px 10px 10px 10px;
+}
+#plotId .toolbox .pwt-btn-today{
+    margin-right: 0;
+}
+#plotId .toolbox .pwt-btn-today::before{
+    content: 'برو به ';
+}
+
+#plotId .toolbox .pwt-btn-calendar{
+    margin-right: 0;
+}
+#plotId .other-month{
+    background: #fff;
+}
+#plotId .other-month:hover{
+    color : #ccc;
+}
+#plotId span{
+    width: 38px;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+#plotId .pwt-btn-today,#plotId .pwt-btn-calendar{
+    color: #0077DB;
+}
+#plotId .disabled span{
+    color : #ccc;
+    background: #fff;
+    text-decoration: line-through;
+    border: none;
+
+}
+#plotId .disabled span:hover{
+    border: none;
+}
+#plotId .selected.today span{
+    background: #fff;
+}
+#plotId .selected.today span:hover{
+    color: #000;
+}
+#plotId span:hover{
+   background-color: #fff;
+   color: #000; 
+   border: 2px solid rgb(241, 145, 76);
+   border-radius: 4px;
+}

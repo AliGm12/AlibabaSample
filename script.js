@@ -605,7 +605,6 @@ $(document).ready(function() {
         initialValue : false,
         format: 'YYYY/MM/DD',
         minDate : today,
-        maxDate : nexttwoWeek,
         navigator:{
             scroll:{
                 enabled: false
@@ -614,6 +613,11 @@ $(document).ready(function() {
         onSelect : function(unix){
             console.log("hi",unix);
             
+        },
+        navigator : {
+            text : {
+                btnNextText : '<'
+            }
         }
     });
     $(".date-picker2").pDatepicker({
@@ -629,3 +633,48 @@ $(document).ready(function() {
     });
     
   });
+
+//If the div is dynamically created, you can detect when it appears using MutationObserver and modify it:
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      mutation.addedNodes.forEach((node) => {
+        if (node.nodeType === 1) { // Check if it's an element
+          console.log("New element detected:", node);
+          
+          // Check if it has a specific class (update this with your actual class)
+          if (node.classList.contains("toolbox")) {
+            console.log("Target div detected!");
+            node.style.backgroundColor = "yellow"; // Apply a style change
+          }
+        }
+      });
+    });
+  });
+  
+  // Observe the entire document for changes
+//   observer.observe(document.body, { childList: true, subtree: true });
+  
+
+//   let dateDiv
+//   setTimeout(()=>{
+//       console.log(document.querySelector(".pwt-btn-calendar"));
+//       document.querySelector(".pwt-btn-calendar").innerHTML = "برو به تقویم میلادی"
+//     //   console.log(document.querySelector("#plotId"));
+//       dateDiv = document.querySelector("#plotId");
+//       document.addEventListener("",()=>{
+//         console.log("2hh");
+        
+//       })
+//       dateDiv.addEventListener("click",()=>{
+//         console.log(dateDiv.classList);
+//         console.log("hh");
+        
+        
+        
+//       })
+// },100)
+// // datepicker-gregorian
+// console.log(dateDiv);
+
+// window.addEventListener("change",()=>{console.log("hfgfsdfdsf");
+// })
