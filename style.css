@@ -17,6 +17,7 @@ body{
     flex-direction: column;
     margin: 0;
     padding: 0;
+    font-family: alibaba;
 }
 #plotId .datepicker-navigator{
 
@@ -26,7 +27,7 @@ body{
     display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.233);
     padding:5px 10px 10px 10px;
 }
 #plotId .toolbox .pwt-btn-today{
@@ -41,6 +42,7 @@ body{
 }
 #plotId .other-month{
     background: #fff;
+    position: relative;
 }
 #plotId .other-month:hover{
     color : #ccc;
@@ -52,6 +54,7 @@ body{
     justify-content: center;
     align-items: center;
     font-size: 14px;
+    position: relative;
 }
 
 #plotId .pwt-btn-today,#plotId .pwt-btn-calendar{
@@ -78,4 +81,41 @@ body{
    color: #000; 
    border: 2px solid rgb(241, 145, 76);
    border-radius: 4px;
+}
+
+#plotId td:not(.disabled) span::after{
+    content: 'تاریخ رفت';
+    padding: 0 5px;
+    position: absolute;
+    bottom: 2.4rem;
+    background-color: #000;
+    border-radius: 5px;
+    text-wrap: nowrap;
+    display: none;
+    color : #fff;
+    
+}
+#plotId td{
+    padding-right: 10px;
+}
+#plotId td:not(.disabled) span::before{
+    content: '';
+    position: absolute;
+    bottom: 2rem;
+    transform: rotate(45deg);
+    width: 13px;
+    height: 13px;
+    background-color: #000000;
+    display: none;
+    color : #fff;
+}
+#plotId td:not(.disabled) span:hover::before,
+#plotId td:not(.disabled) span:hover::after{
+    display: block;
+}
+#plotId .header-row-cell{
+    color: rgb(153, 153, 153);
+}
+#plotId .table-days tbody tr td:last-child span{
+    color: red;
 }
