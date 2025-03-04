@@ -498,7 +498,6 @@ addDeleteBtns.forEach(addBtn=>{
 
             let titleName;
             if(e.currentTarget.innerHTML == 'add'){
-                console.log("hi");
                 
                 e.currentTarget.nextElementSibling.innerHTML = +e.currentTarget.nextElementSibling.innerHTML + 1
                 titleName = e.currentTarget.nextElementSibling.parentNode.previousElementSibling.firstElementChild.innerHTML;
@@ -514,9 +513,7 @@ addDeleteBtns.forEach(addBtn=>{
                     e.currentTarget.previousElementSibling.innerHTML = +e.currentTarget.previousElementSibling.innerHTML - 1
                 }else if(e.currentTarget.previousElementSibling.innerHTML <= 2){
                     e.currentTarget.style.cursor = "not-allowed"
-                }
-                console.log(e.currentTarget.previousElementSibling.parentNode.previousElementSibling.firstElementChild.innerHTML);
-                
+                }                
                 titleName = e.currentTarget.previousElementSibling.parentNode.previousElementSibling.firstElementChild.innerHTML;
                 addDelBtnStack.forEach(el=>{
                     if(el.key == titleName){
@@ -610,9 +607,7 @@ $(document).ready(function() {
                 enabled: false
             }
         },
-        onSelect : function(unix){
-            console.log("hi",unix);
-            
+        onSelect : function(unix){            
         },
         navigator : {
             text : {
@@ -638,16 +633,14 @@ $(document).ready(function() {
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       mutation.addedNodes.forEach((node) => {
-        if (node.nodeType === 1) { // Check if it's an element
-          console.log("New element detected:", node);
-          
+        if (node.nodeType === 1) { // Check if it's an element          
           // Check if it has a specific class (update this with your actual class)
           if (node.classList.contains("toolbox")) {
-            console.log("Target div detected!");
             node.style.backgroundColor = "yellow"; // Apply a style change
           }
         }
       });
+      
     });
   });
   
