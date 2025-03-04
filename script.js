@@ -640,9 +640,12 @@ $(document).ready(function() {
           }
         }
       });
-      
+
     });
   });
+  setTimeout(()=>{
+    document.querySelector(".snow").classList.add("hidden")
+  },6000)
   
   // Observe the entire document for changes
 //   observer.observe(document.body, { childList: true, subtree: true });
